@@ -18,16 +18,18 @@ public class Inventory : MonoBehaviour {
 		}
 
 		hotbarHUD.SetIcon(availableIndex, item.GetIcon());
+		return true;
 	}
 
 	public bool DropItem(IInventoryItem item) {
 		int itemToDropIndex = GetItemIndex(item);
 		if (itemToDropIndex < 0) {
 			Debug.LogError("Attempting to drop item we do not have. This should not be possible.");
-			return;
+			return false;
 		}
 
 		hotbarHUD.ClearIcon(itemToDropIndex);
+		return true;
 	}
 
 	public void OnSelect(int newSelectionIndex) {
