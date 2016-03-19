@@ -24,4 +24,12 @@ public class HotbarHUDElement : MonoBehaviour {
 	public void DeSelect() {
 		panel.color = initialColor;
 	}
+
+	public void SetIcon(Sprite sprite) {
+		icon.sprite = sprite;
+	}
+
+	public void ClearIcon() {
+		icon.sprite = null;
+	}
 }

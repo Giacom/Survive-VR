@@ -9,13 +9,13 @@ public class Interaction : MonoBehaviour {
 
 		if (Input.GetKeyDown(KeyCode.E)) {
 			var interactingObjects = GetInteractObjects();
-            Debug.LogError(interactingObjects.Count + " is the number of raycast objects that we found.");
+			Debug.Log(interactingObjects.Count + " is the number of raycast objects that we found.");
 
             for (int i = 0; i < interactingObjects.Count; i++) {
 				var interactingObject = interactingObjects[i];
-                Debug.LogError("Checking " + interactingObject.gameObject.name);
+				Debug.Log("Checking " + interactingObject.gameObject.name);
                 foreach (var interactible in interactingObject.GetComponents<IInteractible>()) {
-                    Debug.LogError("Our gameobject " + interactingObject.name + " is NOT null.");
+                    Debug.Log("Our gameobject " + interactingObject.name + " is NOT null.");
 
                     interactible.Activate(gameObject);
                 }
