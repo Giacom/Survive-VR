@@ -38,12 +38,13 @@ public class Crafting : MonoBehaviour {
 
 		if (isCrafting) {
 			UpdateCurrentSelection();
+		} else if (currentSelectedCraftingObject != null) {
+			DestroyObject();
 		}
 	}
 	public void UpdateCurrentSelection() {
 		if (previousCraftSelection != currentCraftSelection) {
-			Destroy(currentSelectedCraftingObject.gameObject);
-			currentSelectedCraftingObject = null;
+			DestroyObject();
 		}
 
 		if (currentSelectedCraftingObject == null) {
@@ -58,6 +59,11 @@ public class Crafting : MonoBehaviour {
 		}
 
 		previousCraftSelection = currentCraftSelection;
+	}
+
+	public void DestroyObject() {
+		Destroy(currentSelectedCraftingObject.gameObject);
+		currentSelectedCraftingObject = null;
 	}
 
 	public void BuildObject() {
