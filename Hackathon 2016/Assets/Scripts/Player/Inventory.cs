@@ -18,6 +18,8 @@ public class Inventory : MonoBehaviour {
 		}
 
 		hotbarHUD.SetIcon(availableIndex, item.GetIcon());
+		item.Pickup(this);
+		inventory[availableIndex] = item;
 		return true;
 	}
 
@@ -29,7 +31,17 @@ public class Inventory : MonoBehaviour {
 		}
 
 		hotbarHUD.ClearIcon(itemToDropIndex);
+		item.Drop(this);
+		inventory[itemToDropIndex] = null;
 		return true;
+	}
+
+	public void DropSelected() {
+		Debug.LogError(currentSelectionIndex);
+		IInventoryItem item = inventory[currentSelectionIndex];
+		if (item != null) {
+			DropItem(inventory[currentSelectionIndex]);
+		}
 	}
 
 	public void OnSelect(int newSelectionIndex) {
@@ -59,10 +71,8 @@ public class Inventory : MonoBehaviour {
 	}
 
 	public int GetAvailableSpace() {
-		for (int i = 0; i < INVENTORY_SIZE; i++) {
-			if (inventory[i] == null) {
-				return i;
-			}
+		if (inventory[currentSelectionIndex] == null) {
+			return currentSelectionIndex;
 		}
 		return -1;
 	}

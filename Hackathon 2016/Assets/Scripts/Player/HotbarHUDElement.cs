@@ -13,7 +13,7 @@ public class HotbarHUDElement : MonoBehaviour {
 
 	public void Awake() {
 		panel = GetComponent<Image>();
-		icon = GetComponentInChildren<Image>(true);
+		icon = transform.GetChild(0).GetComponent<Image>();
 		initialColor = panel.color;
 	}
 
@@ -26,10 +26,12 @@ public class HotbarHUDElement : MonoBehaviour {
 	}
 
 	public void SetIcon(Sprite sprite) {
+		icon.enabled = true;
 		icon.sprite = sprite;
 	}
 
 	public void ClearIcon() {
+		icon.enabled = false;
 		icon.sprite = null;
 	}
 }

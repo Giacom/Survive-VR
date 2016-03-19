@@ -18,6 +18,10 @@ public class HotbarHUD : MonoBehaviour {
 				Select(i - 1);
 			}
 		}
+
+		if (Input.GetKeyDown(KeyCode.Q)) {
+			linkedInventory.DropSelected();
+		}
 	}
 
 	public void Select(int number) {
