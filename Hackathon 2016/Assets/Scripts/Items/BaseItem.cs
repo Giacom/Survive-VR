@@ -4,8 +4,14 @@ using System.Collections;
 public class BaseItem : MonoBehaviour, IInventoryItem, IInteractible {
 	public Sprite inventoryIcon;
 
+	public ItemType itemType;
+
 	public Sprite GetIcon() {
 		return inventoryIcon;
+	}
+
+	public ItemType GetItemType() {
+		return itemType;
 	}
 
 	public void Activate(GameObject interactor) {
@@ -26,6 +32,10 @@ public class BaseItem : MonoBehaviour, IInventoryItem, IInteractible {
 		gameObject.SetActive(true);
 		gameObject.transform.SetParent(null);
 		gameObject.transform.position = inventory.transform.position + (inventory.transform.forward * 2f);
+	}
+
+	public virtual void Destroy() {
+		Destroy(gameObject);
 	}
 
 	public virtual void Select() {

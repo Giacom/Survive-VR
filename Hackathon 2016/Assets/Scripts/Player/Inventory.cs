@@ -1,5 +1,5 @@
 ﻿using UnityEngine;
-using System.Collections;
+using System.Collections.Generic;
 
 public class Inventory : MonoBehaviour {
 
@@ -44,6 +44,18 @@ public class Inventory : MonoBehaviour {
 		}
 	}
 
+	public void DestroyItem(IInventoryItem item) {
+		int itemToDestroyIndex = GetItemIndex(item);
+		if (itemToDestroyIndex < 0) {
+			Debug.LogError("Attempting to destroy item we do not have. This should not be possible.");
+			return;
+		}
+
+		hotbarHUD.ClearIcon(itemToDestroyIndex);
+		item.Destroy();
+		inventory[itemToDestroyIndex] = null;
+	}
+
 	public void OnSelect(int newSelectionIndex) {
 		if (inventory[newSelectionIndex] != null) {
 			inventory[newSelectionIndex].Select();
@@ -59,6 +71,16 @@ public class Inventory : MonoBehaviour {
 				inventory[i].DeSelect();
 			}
 		}
+	}
+
+	public List<IInventoryItem> GetItems() {
+		List<IInventoryItem> items = new List<IInventoryItem>();
+		for (int i = 0; i < INVENTORY_SIZE; i++) {
+			if (inventory[i] != null) {
+				items.Add(inventory[i]);
+			}
+		}
+		return items;
 	}
 
 	public int GetItemIndex(IInventoryItem item) {
