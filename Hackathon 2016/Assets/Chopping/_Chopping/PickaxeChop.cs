@@ -39,6 +39,11 @@ public class PickaxeChop : MonoBehaviour
         // Did we hit anything within 10 units?);)
         if (Physics.Raycast(ray, out hit, 10.0f))
         {
+			var resourcePoint = hit.transform.gameObject.GetComponent<ResourcePoint>();
+			if (resourcePoint != null) {
+				resourcePoint.Hit();
+			}
+
             // Did we even click er chop on the terrain/tree?);
             if (hit.collider.name != Terrain.activeTerrain.name)
             {
