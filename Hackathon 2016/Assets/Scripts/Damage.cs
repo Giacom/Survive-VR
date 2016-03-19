@@ -3,7 +3,6 @@ using System.Collections;
 
 public class Damage : MonoBehaviour {
 
-    CharacterController Control;
     public float cooldownDuration = 5f;
     public float damage = 20f;
     PlayerSurvive playerSurvive;
@@ -25,12 +24,11 @@ public class Damage : MonoBehaviour {
             playerSurvive.health -= damage;
             cooldownTimer = Time.time + cooldownDuration;
 
-        }
-        
-        if (playerSurvive.health < 0)
-        {
-            Control.enabled = false;
-
+         if (playerSurvive.health < 1)
+            {
+                Destroy(gameObject);
+                Application.LoadLevel("YouDead");
+            }
         }
 
     }
