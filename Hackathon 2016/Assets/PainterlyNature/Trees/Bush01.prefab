@@ -11,6 +11,8 @@ GameObject:
   - 193: {fileID: 19313192}
   - 33: {fileID: 3313192}
   - 23: {fileID: 2313192}
+  - 64: {fileID: 6447620}
+  - 114: {fileID: 11420264}
   m_Layer: 0
   m_Name: Bush01
   m_TagString: Untagged
@@ -25,7 +27,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 113192}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 399.5, y: 21.126, z: 626.36}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -54,13 +56,6 @@ Material:
           m_Offset: {x: 0, y: 0}
       data:
         first:
-          name: _ShadowTex
-        second:
-          m_Texture: {fileID: 2800000, guid: 38a6363884e1f6048a89675baad2a4b1, type: 3}
-          m_Scale: {x: 1, y: 1}
-          m_Offset: {x: 0, y: 0}
-      data:
-        first:
           name: _TranslucencyMap
         second:
           m_Texture: {fileID: 2800000, guid: d73541dcebd969a48b8690e732651de9, type: 3}
@@ -71,6 +66,13 @@ Material:
           name: _BumpSpecMap
         second:
           m_Texture: {fileID: 2800000, guid: d9f7fcf2ebdce2942805bd86eb2bd6a4, type: 3}
+          m_Scale: {x: 1, y: 1}
+          m_Offset: {x: 0, y: 0}
+      data:
+        first:
+          name: _ShadowTex
+        second:
+          m_Texture: {fileID: 2800000, guid: 38a6363884e1f6048a89675baad2a4b1, type: 3}
           m_Scale: {x: 1, y: 1}
           m_Offset: {x: 0, y: 0}
     m_Floats:
@@ -107,6 +109,14 @@ Material:
         first:
           name: _TranslucencyColor
         second: {r: 0.64705884, g: 0.64705884, b: 0.64705884, a: 1}
+      data:
+        first:
+          name: _TreeInstanceColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TreeInstanceScale
+        second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!21 &2113192
 Material:
   serializedVersion: 6
@@ -161,6 +171,14 @@ Material:
         first:
           name: _SpecColor
         second: {r: 0.5, g: 0.5, b: 0.5, a: 1}
+      data:
+        first:
+          name: _TreeInstanceColor
+        second: {r: 1, g: 1, b: 1, a: 1}
+      data:
+        first:
+          name: _TreeInstanceScale
+        second: {r: 1, g: 1, b: 1, a: 1}
 --- !u!23 &2313192
 MeshRenderer:
   m_ObjectHideFlags: 1
@@ -332,6 +350,18 @@ Mesh:
   m_BakedConvexCollisionMesh: 
   m_BakedTriangleCollisionMesh: 
   m_MeshOptimized: 0
+--- !u!64 &6447620
+MeshCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113192}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Convex: 1
+  m_Mesh: {fileID: 4313192}
 --- !u!114 &11413192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7924,6 +7954,19 @@ MonoBehaviour:
   optimizedSolidMaterial: {fileID: 2113192}
   optimizedCutoutMaterial: {fileID: 2113190}
   isInPreviewMode: 0
+--- !u!114 &11420264
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 113192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3cc5ce10c5a4b40ce90927f3e996e0c5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceRestorationAmount: 20
+  coolDownSecs: 10
 --- !u!193 &19313192
 Tree:
   m_ObjectHideFlags: 1
