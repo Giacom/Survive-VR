@@ -10,10 +10,10 @@ public class SurvivalHUD : MonoBehaviour {
 	public Image thirstBar;
 	public Image hungerBar;
 
-	public void Update() {
-		// Normalized to 0 - 1.0 range
-		healthBar.fillAmount = player.health * 0.01f;
-		thirstBar.fillAmount = player.thirst * 0.01f;
-		hungerBar.fillAmount = player.hunger * 0.01f;
-	}
+    public void Update() {
+        // Normalized to 0 - 1.0 range
+        healthBar.fillAmount = player.health * 0.01f;
+        thirstBar.fillAmount = player.thirst * 0.01f;
+        hungerBar.fillAmount = player.hunger * 0.01f;
+    }   
 }
