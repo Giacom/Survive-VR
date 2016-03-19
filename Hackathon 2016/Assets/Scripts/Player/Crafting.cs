@@ -42,7 +42,7 @@ public class Crafting : MonoBehaviour {
 	}
 	public void UpdateCurrentSelection() {
 		if (previousCraftSelection != currentCraftSelection) {
-			Destroy(currentSelectedCraftingObject);
+			Destroy(currentSelectedCraftingObject.gameObject);
 			currentSelectedCraftingObject = null;
 		}
 
