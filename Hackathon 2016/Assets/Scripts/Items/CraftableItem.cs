@@ -5,4 +5,6 @@ public class CraftableItem : MonoBehaviour {
 
 	public ItemType resourceTypeRequired;
 	public int resourceAmountRequired;
+
+	public Vector3 positionOffset;
 }

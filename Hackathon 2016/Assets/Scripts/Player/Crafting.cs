@@ -50,7 +50,7 @@ public class Crafting : MonoBehaviour {
 		if (currentSelectedCraftingObject == null) {
 			currentSelectedCraftingObject = Instantiate<CraftableItem>(craftingPrefabs[currentCraftSelection]);
 			currentSelectedCraftingObject.transform.SetParent(gameObject.transform);
-			currentSelectedCraftingObject.transform.position = transform.position + (transform.forward * 10f) - (transform.up * 2f);
+			currentSelectedCraftingObject.transform.position = (transform.position + (transform.forward * 10f) - (transform.up * 2f)) + currentSelectedCraftingObject.positionOffset;
 			Renderer renderer = currentSelectedCraftingObject.GetComponent<Renderer>();
 
 			if (renderer != null) {
