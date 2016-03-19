@@ -12,6 +12,7 @@ GameObject:
   - 23: {fileID: 2344300}
   - 111: {fileID: 11140456}
   - 136: {fileID: 13698138}
+  - 114: {fileID: 11424530}
   m_Layer: 0
   m_Name: Sycamore_Adult_Craft
   m_TagString: Untagged
@@ -79,6 +80,20 @@ Animation:
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
   m_CullingType: 0
+--- !u!114 &11424530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 127170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b739a39afffc44fae9c23032b717d407, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  resourceTypeRequired: 0
+  resourceAmountRequired: 3
+  positionOffset: {x: 0, y: 0, z: 0}
 --- !u!136 &13698138
 CapsuleCollider:
   m_ObjectHideFlags: 1
