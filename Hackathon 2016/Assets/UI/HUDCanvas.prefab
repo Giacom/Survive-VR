@@ -751,6 +751,7 @@ MonoBehaviour:
   - {fileID: 11451132}
   - {fileID: 11480162}
   - {fileID: 11468406}
+  linkedInventory: {fileID: 0}
 --- !u!114 &11414464
 MonoBehaviour:
   m_ObjectHideFlags: 1

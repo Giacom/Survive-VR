@@ -33,13 +33,19 @@ public class Inventory : MonoBehaviour {
 	}
 
 	public void OnSelect(int newSelectionIndex) {
-		inventory[newSelectionIndex].Select();
+		if (inventory[newSelectionIndex] != null) {
+			inventory[newSelectionIndex].Select();
+		}
+
+		currentSelectionIndex = newSelectionIndex;
+	
 		for (int i = 0; i < INVENTORY_SIZE; i++) {
 			if (i == newSelectionIndex) {
 				continue;
 			}
-
-			inventory[newSelectionIndex].DeSelect();
+			if (inventory[i] != null) {
+				inventory[i].DeSelect();
+			}
 		}
 	}
 
