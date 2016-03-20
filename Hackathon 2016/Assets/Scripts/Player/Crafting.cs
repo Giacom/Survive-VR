@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class Crafting : MonoBehaviour {
 
 	public CraftableItem[] craftingPrefabs;
+	public TextMesh selectionTextPrefab;
 
 	private bool isCrafting = false;
 
@@ -12,6 +13,7 @@ public class Crafting : MonoBehaviour {
 	private int previousCraftSelection = 0;
 
 	private CraftableItem currentSelectedCraftingObject;
+	private TextMesh selectionText;
 	private Inventory inventory;
 
 	public void Awake() {
@@ -56,6 +58,15 @@ public class Crafting : MonoBehaviour {
 			if (renderer != null) {
 				renderer.material.color = Color.green;
 			}
+
+			selectionText = Instantiate<TextMesh>(selectionTextPrefab);
+			selectionText.transform.SetParent(currentSelectedCraftingObject.transform, false);
+			selectionText.text = "Requires " + currentSelectedCraftingObject.resourceAmountRequired.ToString() + " " +
+				(currentSelectedCraftingObject.resourceTypeRequired == ItemType.WOOD ? "Wood" : "Stone");
+		}
+
+		if (selectionText != null) {
+			selectionText.transform.rotation = Quaternion.LookRotation(selectionText.transform.position - Camera.main.transform.position);
 		}
 
 		previousCraftSelection = currentCraftSelection;
@@ -64,6 +75,7 @@ public class Crafting : MonoBehaviour {
 	public void DestroyObject() {
 		Destroy(currentSelectedCraftingObject.gameObject);
 		currentSelectedCraftingObject = null;
+		selectionText = null;
 	}
 
 	public void BuildObject() {
@@ -102,6 +114,8 @@ public class Crafting : MonoBehaviour {
 				renderer.material.color = Color.white;
 			}
 			currentSelectedCraftingObject = null;
+			Destroy(selectionText.gameObject);
+			selectionText = null;
 			isCrafting = false;
 		}
 	}
